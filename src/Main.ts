@@ -1,6 +1,12 @@
 import "reflect-metadata";
-import { container } from 'tsyringe';
-import { Stage } from './Stage';
+import { container, injectable } from "tsyringe";
+import { StageManager } from "./StageManager";
 
+@injectable()
+export class Main{
+    constructor(stageManager:StageManager){
+        console.log("In Main class");
+    }
+}
 
-let main = container.resolve(Stage);
+let main = container.resolve(Main);
